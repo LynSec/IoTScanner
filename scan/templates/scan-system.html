@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+    <head>
+        <title>
+            Home
+        </title>
+        <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="{% static 'js/test.js' %}"></script>
+
+        <style>
+            table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            }
+
+            td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            }
+
+            tr:nth-child(even) {
+            background-color: #dddddd;
+            }
+
+        nav div#navigation{
+            text-decoration: none;
+            background:rgba(0,0,0,0.1);
+            padding:2%;
+            /*margin:2%;*/
+            text-align:center;
+        }
+        nav>div>a{
+            color: black;
+            text-align: center;
+            padding: 10px 15px 10px 15px;
+            text-decoration: none;
+            font-size: 16px; 
+            line-height: 25px;
+            border-radius: 4px;  
+        }  
+        nav>div>a:hover{
+            background:rgba(255, 255, 255, 0.6);
+            color:#000000;
+        }
+
+            
+            body { margin: 0; }
+            
+            .start {
+                background-color: #302f2f76;
+                height: 200px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+            }
+
+            .start-text {
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+            }
+            
+            .column {
+                height: 300px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+                display:inline-block;
+                padding: 0 8px;
+                text-align: center;
+                width:23%;
+                height:100px;
+                font-size:small;
+            }
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                margin: 8px;
+            }
+            .container {padding: 16px;}
+            
+            .button {
+                border: none;
+                outline: 0;
+                display: inline-block;
+                padding: 8px;
+                color: white;
+                background-color: #000;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+            }
+
+            .button:hover {background-color: #555;}
+            .team {
+                position: relative;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                overflow: hidden;
+            }
+
+            .info {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            .info .team-area {
+                display: flex;
+                width: 50vw;
+            }
+
+            .info .team-area .team-member:hover .video-background {
+                animation: fadeIn .3s ease-in-out forwards;
+                
+            }
+
+            .info .team-area .team-member:not(:hover) .video-background {
+                animation: fadeOut .3s ease-in-out forwards;
+            }
+
+            .info .team-area .team-member .video-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                opacity: 0;
+            }
+
+            .info .team-area .team-member .thumb {
+                width: 150px;
+                height: 150px;
+            }
+
+            .info .team-area .team-member .thumb img {
+                width: 100%;
+                border-radius: 50%; 
+            }
+
+            .info .team-area .team-member .name {
+                font-size: 20px;
+                color: #000000;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0 }
+                to { opacity: 0.8; }
+            }
+
+            @keyframes fadeOut {
+                from { opacity: 1 }
+                to { opacity: 0; }
+            }
+
+            /* Our Motto */
+            .special {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            background: #f1f1f1; 
+            overflow: hidden;
+            margin-top: 5px;
+            padding-left:20%;
+            height:350px;
+            }
+
+            .perspective-text {
+            color:  white; 
+            font-family: Arial;
+            font-size: 58px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            }
+
+            .perspective-line {
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            }
+
+            .special p {
+            margin: 0;
+            height: 50px;
+            line-height: 50px;
+            transition: all 0.5s ease-in-out;
+            }
+
+            .perspective-line:nth-child(odd) {
+            transform: skew(60deg, -1deg) scaleY(0.667);
+            }
+
+            .perspective-line:nth-child(even) {
+            transform: skew(0deg, -1deg) scaleY(1.337);
+            }
+
+            .perspective-text:hover p {
+            transform: translate(0, -50px);
+            }
+
+            .perspective-line:nth-child(1) {
+            left: 29px;
+            }
+
+            .perspective-line:nth-child(2) {
+            left: 58px;
+            background: #be7e07;
+            }
+
+            .perspective-line:nth-child(3) {
+            left: 87px;
+            background: #34affc;
+            }
+
+            .perspective-line:nth-child(4) {
+            left: 116px;
+            background: #97b822;
+            }
+
+            .perspective-line:nth-child(5) {
+            left: 145px;
+            }
+            .active{
+                background: beige;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <nav>
+            <div id="navigation">
+                <a  href="{% url 'index' %}">Home</a>
+                <a class="active" href="{% url 'scan' %}">Scan</a>
+                <a href="{% url 'results' %}">Results</a>
+
+            </div>
+        </nav>
+
+        <div class="start">
+            <div class="start-text">
+                <p style="font-size:55px;"><b>IoT Scanner</b></p>
+                <p style="font-size:35px;font-family:Satisfy;">You can enter the IP range &nbsp;</p>
+            </div>
+        </div>
+
+<br>
+<div class="container">
+    <form id="portScanForm" method="post" action="{% url 'scriptargs' %}">
+        <div class="row">
+          <div class="col-25">
+            <label for="ip_address">IP Address or Range</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="ip_address" name="ip_address" placeholder="Enter IP address or range.." required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="port_range_start">Port Range Start</label>
+          </div>
+          <div class="col-75">
+            <input type="number" id="port_range_start" name="port_range_start" placeholder="Port range start.." required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="port_range_end">Port Range End</label>
+          </div>
+          <div class="col-75">
+            <input type="number" id="port_range_end" name="port_range_end" placeholder="Port range end.." required>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Scan Ports">
+        </div>
+
+</div>
+
+<div id="loadingIndicator" class="loading-indicator">
+    <div class="loader"></div>
+</div>
+
+
+<script>
+function validateForm() {
+    var ip_address = document.getElementById("ip_address").value.trim();
+    var port_range_start = document.getElementById("port_range_start").value.trim();
+    var port_range_end = document.getElementById("port_range_end").value.trim();
+
+    // Check if IP address is empty
+    if (ip_address === "") {
+        highlightField("ip_address");
+        return false;
+    }
+
+    // Check if port range start is empty
+    if (port_range_start === "") {
+        highlightField("port_range_start");
+        return false;
+    }
+
+    // Check if port range end is empty
+    if (port_range_end === "") {
+        highlightField("port_range_end");
+        return false;
+    }
+
+    // Check if port range end is greater than port range start
+    if (parseInt(port_range_end) <= parseInt(port_range_start)) {
+        highlightField("port_range_end");
+        return false;
+    }
+
+    return true;
+}
+
+function validateField(fieldId) {
+    var field = document.getElementById(fieldId);
+    if (field.value.trim() === "") {
+        highlightField(fieldId);
+    } else {
+        field.style.borderColor = ""; // Reset border color if field is not empty
+    }
+}
+
+function highlightField(fieldId) {
+    var field = document.getElementById(fieldId);
+    field.style.borderColor = "red";
+}
+</script>
+ <!-- Card-->
+    <div class="card bg-primary text-white text-center p-4 border-0 two">
+      <blockquote class="blockquote mb-0">
+        <p class="mb-0"> scan results .</p>
+        <footer class="blockquote-footer text-white"><small>Scan for IoT
+            <cite title="Source Title"> Source Title</cite></small></footer>
+      </blockquote>
+    </div>
+
+    <div id="resultArea">
+
+    </div>
+
+
+<div id="vulnerabilityResults">
+
+</div>
+ <title>Detailed vulnerabilities</title>
+        <div id="scanResults"></div>
+
+
+    
+
+  </div>
+
+  
+
+    <footer >
+            <div class="footer">
+		Footer
+                <div class="footer-copyright" style=" background-color:rgba(255, 255, 255, 0.13);">
+                    &#169; 2024:
+                  <a href="#" style="text-decoration:none; color:rgba(255, 255, 255, 0.281);">IoTScanner</a> 
+                  <br>
+                </div>
+
+            </div>
+        </footer>
+
+
+        </body>
+</html>
+        
